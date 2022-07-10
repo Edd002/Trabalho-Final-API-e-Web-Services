@@ -2,6 +2,7 @@ package com.spring.crud.demo.controller;
 
 import com.spring.crud.demo.annotation.LogObjectAfter;
 import com.spring.crud.demo.annotation.LogObjectBefore;
+import com.spring.crud.demo.dto.PlayerDTO;
 import com.spring.crud.demo.model.Player;
 import com.spring.crud.demo.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-
-// TODO Criar DTOs
 
 @RestController
 @RequestMapping("/players")
@@ -38,15 +37,16 @@ public class PlayerController {
 
     @LogObjectBefore
     @LogObjectAfter
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> save(@RequestBody Player player) {
-        Player savedPlayer = service.save(player);
+    @PostMapping
+    public ResponseEntity<?> save(@RequestBody PlayerDTO player) {
+        /*Player savedPlayer = service.save(player);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
         		.path("/{id}")
         		.buildAndExpand(savedPlayer.getId())
-        		.toUri();
-        return ResponseEntity.created(uri).body(savedPlayer);
+        		.toUri();*/
+        //return ResponseEntity.created(uri).body(savedPlayer);
+        return ResponseEntity.ok(null);
     }
 
     @LogObjectBefore

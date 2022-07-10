@@ -14,29 +14,37 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table
+@Table(name = "Team")
+@Entity(name = "Team")
 public class Team implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@Column(name = "name")
-	private String name;
+    @Column(name = "name")
+    private String name;
 
-	@Column(name = "local")
-	private String local;
+    @Column(name = "local")
+    private String local;
 
-	@JsonManagedReference
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "team", cascade = { CascadeType.ALL})
-	private List<Player> players;
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "team", cascade = {CascadeType.ALL})
+    private List<Player> players;
 
-	@JsonManagedReference
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "originTeam", cascade = { CascadeType.ALL})
-	private List<Transfer> teamsOrigin;
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "originTeam", cascade = {CascadeType.ALL})
+    private List<Transfer> teamsOrigin;
 
-	@JsonManagedReference
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "destinyTeam", cascade = { CascadeType.ALL})
-	private List<Transfer> teamsDestiny;
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "destinyTeam", cascade = {CascadeType.ALL})
+    private List<Transfer> teamsDestiny;
+
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "team", cascade = {CascadeType.ALL})
+    private List<TeamTournament> teamTournaments;
+
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "team", cascade = {CascadeType.ALL})
+    private List<TeamMatch> teamMatches;
 }

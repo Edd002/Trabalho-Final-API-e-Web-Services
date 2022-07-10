@@ -11,12 +11,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table
+@Table(name = "Transfer")
+@Entity(name = "Transfer")
 public class Transfer implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "country")
@@ -27,11 +27,11 @@ public class Transfer implements Serializable {
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="team_origin_id")
+    @JoinColumn(name = "team_origin_id", foreignKey = @ForeignKey(name = "fk_transfer_team_origin"))
     private Team originTeam;
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="team_destiny_id")
+    @JoinColumn(name = "team_destiny_id", foreignKey = @ForeignKey(name = "fk_transfer_team_destiny"))
     private Team destinyTeam;
 }

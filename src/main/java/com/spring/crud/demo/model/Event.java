@@ -6,16 +6,15 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "Player")
-@Entity(name = "Player")
-public class Player implements Serializable {
+@Table(name = "Event")
+@Entity(name = "Event")
+public class Event implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +24,8 @@ public class Player implements Serializable {
     @JsonProperty("name")
     private String name;
 
-    @Column(name = "birthdate")
-    @JsonProperty("birthdate")
-    private Date birthdate;
-
-    @Column(name = "country")
-    @JsonProperty("country")
-    private String country;
-
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "team_id", foreignKey = @ForeignKey(name = "fk_player_team"))
-    private Team team;
+    @JoinColumn(name = "match_id", foreignKey = @ForeignKey(name = "fk_event_match"))
+    private Match match;
 }

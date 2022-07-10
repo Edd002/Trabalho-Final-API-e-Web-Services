@@ -40,6 +40,6 @@ public class TeamServiceImpl implements TeamService {
 
 	@Override
 	public void delete(int id) {
-		repository.findById(id).ifPresent(Team -> repository.delete(Team));
+		repository.findById(id).ifPresent(team -> repository.delete(team));
 	}
 }

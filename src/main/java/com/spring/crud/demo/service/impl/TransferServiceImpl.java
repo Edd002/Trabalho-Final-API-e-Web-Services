@@ -40,6 +40,6 @@ public class TransferServiceImpl implements TransferService {
 
     @Override
     public void delete(int id) {
-        repository.findById(id).ifPresent(Transfer -> repository.delete(Transfer));
+        repository.findById(id).ifPresent(transfer -> repository.delete(transfer));
     }
 }

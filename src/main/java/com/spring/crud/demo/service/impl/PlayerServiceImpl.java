@@ -40,6 +40,6 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public void delete(int id) {
-        repository.findById(id).ifPresent(Player -> repository.delete(Player));
+        repository.findById(id).ifPresent(player -> repository.delete(player));
     }
 }
