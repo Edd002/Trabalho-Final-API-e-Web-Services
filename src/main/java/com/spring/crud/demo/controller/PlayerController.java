@@ -6,7 +6,6 @@ import com.spring.crud.demo.dto.PlayerDTO;
 import com.spring.crud.demo.model.Player;
 import com.spring.crud.demo.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -38,22 +37,21 @@ public class PlayerController {
     @LogObjectBefore
     @LogObjectAfter
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody PlayerDTO player) {
-        /*Player savedPlayer = service.save(player);
+    public ResponseEntity<?> save(@RequestBody PlayerDTO playerDTO) {
+        Player savedPlayer = service.save(playerDTO);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
         		.path("/{id}")
         		.buildAndExpand(savedPlayer.getId())
-        		.toUri();*/
-        //return ResponseEntity.created(uri).body(savedPlayer);
-        return ResponseEntity.ok(null);
+        		.toUri();
+        return ResponseEntity.created(uri).body(savedPlayer);
     }
 
     @LogObjectBefore
     @LogObjectAfter
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable int id, @RequestBody Player player) {
-        Player updatedPlayer = service.update(id, player);
+    public ResponseEntity<?> update(@PathVariable int id, @RequestBody PlayerDTO playerDTO) {
+        Player updatedPlayer = service.update(id, playerDTO);
         return ResponseEntity.ok().body(updatedPlayer);
     }
 
