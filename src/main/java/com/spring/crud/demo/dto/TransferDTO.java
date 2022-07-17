@@ -14,7 +14,7 @@ public class TransferDTO {
     private String country;
 
     @JsonProperty("value")
-    private String value;
+    private Double value;
 
     @JsonProperty("originTeamId")
     private int originTeamId;

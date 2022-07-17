@@ -2,6 +2,7 @@ package com.spring.crud.demo.controller;
 
 import com.spring.crud.demo.annotation.LogObjectAfter;
 import com.spring.crud.demo.annotation.LogObjectBefore;
+import com.spring.crud.demo.dto.TransferDTO;
 import com.spring.crud.demo.model.Transfer;
 import com.spring.crud.demo.service.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ public class TransferController {
     @LogObjectBefore
     @LogObjectAfter
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Transfer transfer) {
-        Transfer savedTransfer = service.save(transfer);
+    public ResponseEntity<?> save(@RequestBody TransferDTO transferDTO) {
+        Transfer savedTransfer = service.save(transferDTO);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
         		.path("/{id}")
@@ -49,8 +50,8 @@ public class TransferController {
     @LogObjectBefore
     @LogObjectAfter
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable int id, @RequestBody Transfer transfer) {
-        Transfer updatedTransfer = service.update(id, transfer);
+    public ResponseEntity<?> update(@PathVariable int id, @RequestBody TransferDTO transferDTO) {
+        Transfer updatedTransfer = service.update(id, transferDTO);
         return ResponseEntity.ok().body(updatedTransfer);
     }
 

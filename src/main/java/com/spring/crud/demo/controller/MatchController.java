@@ -70,9 +70,9 @@ public class MatchController {
 
     @LogObjectBefore
     @LogObjectAfter
-    @PostMapping("/{id}/events/begin-game")
-    public ResponseEntity<?> beginGame(@PathVariable int idMatch) {
-        Event savedEvent = eventService.save(new EventDTO(EventEnum.BEGIN_GAME.getDescription(), idMatch));
+    @PostMapping("/{matchId}/events/begin-game")
+    public ResponseEntity<?> beginGame(@PathVariable int matchId) {
+        Event savedEvent = eventService.save(new EventDTO(EventEnum.BEGIN_GAME.getDescription(), matchId));
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/{id}")
@@ -83,9 +83,9 @@ public class MatchController {
 
     @LogObjectBefore
     @LogObjectAfter
-    @PostMapping("/{id}/events/goal")
-    public ResponseEntity<?> goal(@PathVariable int idMatch) {
-        Event savedEvent = eventService.save(new EventDTO(EventEnum.GOAL.getDescription(), idMatch));
+    @PostMapping("/{matchId}/events/goal")
+    public ResponseEntity<?> goal(@PathVariable int matchId) {
+        Event savedEvent = eventService.save(new EventDTO(EventEnum.GOAL.getDescription(), matchId));
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/{id}")
@@ -96,9 +96,9 @@ public class MatchController {
 
     @LogObjectBefore
     @LogObjectAfter
-    @PostMapping("/{id}/events/interval")
-    public ResponseEntity<?> interval(@PathVariable int idMatch) {
-        Event savedEvent = eventService.save(new EventDTO(EventEnum.INTERVAL.getDescription(), idMatch));
+    @PostMapping("/{matchId}/events/interval")
+    public ResponseEntity<?> interval(@PathVariable int matchId) {
+        Event savedEvent = eventService.save(new EventDTO(EventEnum.INTERVAL.getDescription(), matchId));
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/{id}")
@@ -109,9 +109,9 @@ public class MatchController {
 
     @LogObjectBefore
     @LogObjectAfter
-    @PostMapping("/{id}/events/add-time")
-    public ResponseEntity<?> addTime(@PathVariable int idMatch) {
-        Event savedEvent = eventService.save(new EventDTO(EventEnum.ADD_TIME.getDescription(), idMatch));
+    @PostMapping("/{matchId}/events/add-time")
+    public ResponseEntity<?> addTime(@PathVariable int matchId) {
+        Event savedEvent = eventService.save(new EventDTO(EventEnum.ADD_TIME.getDescription(), matchId));
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/{id}")
@@ -122,9 +122,9 @@ public class MatchController {
 
     @LogObjectBefore
     @LogObjectAfter
-    @PostMapping("/{id}/events/replacement")
-    public ResponseEntity<?> replacement(@PathVariable int idMatch) {
-        Event savedEvent = eventService.save(new EventDTO(EventEnum.REPLACEMENT.getDescription(), idMatch));
+    @PostMapping("/{matchId}/events/replacement")
+    public ResponseEntity<?> replacement(@PathVariable int matchId) {
+        Event savedEvent = eventService.save(new EventDTO(EventEnum.REPLACEMENT.getDescription(), matchId));
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/{id}")
@@ -135,9 +135,9 @@ public class MatchController {
 
     @LogObjectBefore
     @LogObjectAfter
-    @PostMapping("/{id}/matches/{id}/events/warning")
-    public ResponseEntity<?> warning(@PathVariable int idMatch) {
-        Event savedEvent = eventService.save(new EventDTO(EventEnum.WARNING.getDescription(), idMatch));
+    @PostMapping("/{matchId}/events/warning")
+    public ResponseEntity<?> warning(@PathVariable int matchId) {
+        Event savedEvent = eventService.save(new EventDTO(EventEnum.WARNING.getDescription(), matchId));
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/{id}")
@@ -148,9 +148,9 @@ public class MatchController {
 
     @LogObjectBefore
     @LogObjectAfter
-    @PostMapping("/{id}/events/end-game")
-    public ResponseEntity<?> endGame(@PathVariable int idMatch) {
-        Event savedEvent = eventService.save(new EventDTO(EventEnum.END_GAME.getDescription(), idMatch));
+    @PostMapping("/{matchId}/events/end-game")
+    public ResponseEntity<?> endGame(@PathVariable int matchId) {
+        Event savedEvent = eventService.save(new EventDTO(EventEnum.END_GAME.getDescription(), matchId));
 
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/{id}")

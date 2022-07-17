@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "Team_Tournament", uniqueConstraints = { @UniqueConstraint(name = "uk_tournament_team_tournament_team", columnNames = { "tournament", "team" }) })
+@Table(name = "Team_Tournament", uniqueConstraints = { @UniqueConstraint(name = "uk_tournament_team_tournament_team", columnNames = { "tournament_id", "team_id" }) })
 @Entity(name = "Team_Tournament")
 public class TeamTournament implements Serializable {
 
