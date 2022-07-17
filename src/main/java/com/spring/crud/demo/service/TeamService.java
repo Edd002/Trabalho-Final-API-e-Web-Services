@@ -2,6 +2,7 @@ package com.spring.crud.demo.service;
 
 import java.util.List;
 
+import com.spring.crud.demo.dto.TeamDTO;
 import com.spring.crud.demo.model.Team;
 
 public interface TeamService {
@@ -10,9 +11,9 @@ public interface TeamService {
 
 	Team findById(int id);
 
-	Team save(Team team);
+	Team save(TeamDTO teamDTO);
 
-	Team update(int id, Team team);
+	Team update(int id, TeamDTO teamDTO);
 
 	void delete(int id);
 }

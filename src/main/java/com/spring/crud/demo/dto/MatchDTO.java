@@ -1,10 +1,7 @@
 package com.spring.crud.demo.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.spring.crud.demo.model.Team;
 import lombok.*;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -19,6 +16,9 @@ public class MatchDTO {
     @JsonProperty("tournamentId")
     private int tournamentId;
 
-    @JsonProperty("teams")
-    private List<Team> teams;
+    @JsonProperty("firstTeamId")
+    private int firstTeamId;
+
+    @JsonProperty("secondTeamId")
+    private int secondTeamId;
 }

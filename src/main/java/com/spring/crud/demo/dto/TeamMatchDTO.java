@@ -8,11 +8,11 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TeamDTO {
+public class TeamMatchDTO {
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("matchId")
+    private int matchId;
 
-    @JsonProperty("local")
-    private String local;
+    @JsonProperty("teamId")
+    private int teamId;
 }

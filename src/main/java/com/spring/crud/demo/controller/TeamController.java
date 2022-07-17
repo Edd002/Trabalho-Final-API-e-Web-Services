@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.spring.crud.demo.annotation.LogObjectAfter;
 import com.spring.crud.demo.annotation.LogObjectBefore;
+import com.spring.crud.demo.dto.TeamDTO;
 import com.spring.crud.demo.model.Team;
 import com.spring.crud.demo.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,8 @@ public class TeamController {
 	@LogObjectBefore
 	@LogObjectAfter
 	@PostMapping
-	public ResponseEntity<?> save(@RequestBody Team team) {
-		Team savedTeam = service.save(team);
+	public ResponseEntity<?> save(@RequestBody TeamDTO teamDTO) {
+		Team savedTeam = service.save(teamDTO);
 
 		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
 				.path("/{id}")
@@ -50,8 +51,8 @@ public class TeamController {
 	@LogObjectBefore
 	@LogObjectAfter
 	@PutMapping("/{id}")
-	public ResponseEntity<?> update(@PathVariable int id, @RequestBody Team team) {
-		Team updatedTeam = service.update(id, team);
+	public ResponseEntity<?> update(@PathVariable int id, @RequestBody TeamDTO teamDTO) {
+		Team updatedTeam = service.update(id, teamDTO);
 		return ResponseEntity.ok().body(updatedTeam);
 	}
 

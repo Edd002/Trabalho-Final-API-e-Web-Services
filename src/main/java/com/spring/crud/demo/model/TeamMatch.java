@@ -11,13 +11,13 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "Team_Match")
+@Table(name = "Team_Match", uniqueConstraints = { @UniqueConstraint(name = "uk_match_team_match_team", columnNames = { "match", "team" }) })
 @Entity(name = "Team_Match")
 public class TeamMatch implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @JsonBackReference
     @ManyToOne

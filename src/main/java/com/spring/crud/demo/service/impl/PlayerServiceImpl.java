@@ -65,7 +65,6 @@ public class PlayerServiceImpl implements PlayerService {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-
     	return playerRepository.save(player);
     }
 
