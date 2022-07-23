@@ -1,9 +1,15 @@
 package com.spring.crud.demo;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.spring.crud.demo.model.*;
 import com.spring.crud.demo.repository.*;
 import com.spring.crud.demo.utils.HelperUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -121,5 +127,14 @@ public class SpringBootH2CRUDApplication {
                 log.info("******* TeamTournaments stored in DB :: {}", teamTournaments);
             }
         };
+    }
+
+    @Bean
+    public MessageConverter jsonMessageConverter() {
+        final ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.registerModule(new JavaTimeModule());
+        return new Jackson2JsonMessageConverter(mapper);
     }
 }
