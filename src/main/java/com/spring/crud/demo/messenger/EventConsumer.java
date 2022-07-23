@@ -23,8 +23,8 @@ public class EventConsumer {
             exchange = @Exchange(value = EventMessageConfig.NAME_EXCHANGE),
             key = EventMessageConfig.ROUTING_KEY))
     public void processMessage(final Message message, final EventDTO eventDTO) {
-        log.info("Priority ", message.getMessageProperties().getPriority());
-        log.info("Consuming and saving EVENT ", eventDTO.getName());
+        log.info("Priority " + message.getMessageProperties().getPriority());
+        log.info("Consuming and saving EVENT " + eventDTO.getName());
         service.save(eventDTO);
     }
 }
